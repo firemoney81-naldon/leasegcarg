@@ -1,23 +1,630 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+     <!-- JSON-LD Structured Data for Service Offering -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "BMW 520i 리스 컨설팅 및 비교 견적 서비스",
+          "provider": {
+            "@type": "Organization",
+            "name": "프리미엄 자동차 금융 솔루션",
+            "url": "https://yourdomain.com",
+            "logo": "https://yourdomain.com/logo.png"
+          },
+          "areaServed": {
+            "@type": "State",
+            "name": "대한민국"
+          },
+          "description": "BMW 520i 리스, 장기렌트, 할부 등 다양한 금융 상품 비교 분석 및 맞춤 견적을 제공하여 고객에게 가장 합리적인 구매 솔루션을 제안합니다. BMW 520i 리스 가격 평균, 신규 가입 혜택, 장단점 분석 자료를 포함합니다.",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "BMW 520i 금융 상품 리스트",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "BMW 520i 리스 Standard",
+                  "description": "36개월 표준 리스 계약 조건. 월 납입금, 보증금 비율에 따른 상세 견적 제공."
+                },
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": "800000",
+                  "priceCurrency": "KRW",
+                  "description": "월 예상 납입금 (차량 가격, 기간, 잔존가치, 금리에 따라 변동)"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "BMW 520i 리스 잔존가치 보장형",
+                  "description": "계약 만료 시 차량 반납, 인수, 재리스 선택 옵션 제공. 높은 잔존가치 설정으로 월 납입금 절감."
+                },
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": "750000",
+                  "priceCurrency": "KRW",
+                  "description": "월 예상 납입금 (잔존가치에 따라 변동)"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "BMW 520i 리스 장기 프로모션",
+                  "description": "48개월 이상 장기 계약 시 추가 할인 및 혜택 제공. 신규 가입 고객 우대 조건."
+                },
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "price": "700000",
+                  "priceCurrency": "KRW",
+                  "description": "월 예상 납입금 (장기 계약 할인 적용 시)"
+                }
+              }
+            ]
+          },
+          "url": "https://yourdomain.com/bmw-520i-lease"
+        }
+        </script>
+
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap">
+
+        <!-- Custom Styles -->
+        <style>
+            /* Reset and Base Styles */
+            body {
+                font-family: 'Noto Sans KR', sans-serif;
+                margin: 0;
+                padding: 0;
+                line-height: 1.7;
+                background-color: #f8f9fa; /* Light background for clean look */
+                color: #333;
+            }
+            header {
+                background: linear-gradient(135deg, #001f3f, #003366); /* Deep blue gradient */
+                color: white;
+                padding: 4rem 1rem 3rem;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+            h1 {
+                font-size: 2.8rem;
+                font-weight: 900;
+                margin: 0;
+                letter-spacing: -1.5px;
+                line-height: 1.4;
+            }
+            h2 {
+                color: #003366;
+                font-size: 2rem;
+                font-weight: 700;
+                margin-top: 2.5rem;
+                padding-bottom: 0.8rem;
+                border-bottom: 4px solid #f0f0f0; /* Subtle separator */
+                position: relative;
+                display: inline-block;
+            }
+            h2::after {
+                content: '';
+                display: block;
+                width: 50%;
+                height: 4px;
+                background-color: #007bff; /* Accent color */
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+            }
+            h3 {
+                color: #0056b3;
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-top: 2rem;
+            }
+            main {
+                max-width: 1000px;
+                margin: 2rem auto;
+                padding: 0 1.5rem;
+            }
+            section {
+                background-color: white;
+                padding: 3rem;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+                margin-bottom: 2.5rem;
+            }
+            p, ul, dl {
+                font-size: 1.05rem;
+                line-height: 1.8;
+                margin-bottom: 1rem;
+            }
+            nav ul {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+            nav a {
+                color: white;
+                text-decoration: none;
+                font-weight: 700;
+                padding: 0.6rem 1.2rem;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+                font-size: 1.1rem;
+            }
+            nav a:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            /* Content Specific Styles */
+            .callout-box {
+                background-color: #f0f8ff; /* Light blue background for emphasis */
+                border-left: 5px solid #007bff;
+                padding: 1.5rem;
+                border-radius: 8px;
+                margin: 1.5rem 0;
+            }
+            .callout-box strong {
+                font-weight: 700;
+                color: #003366;
+            }
+            .keyword-tags {
+                margin: 1.5rem 0;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .keyword-tags a {
+                background-color: #e3f2fd;
+                color: #007bff;
+                padding: 6px 14px;
+                border-radius: 20px;
+                font-size: 0.9rem;
+                text-decoration: none;
+                transition: background-color 0.3s ease;
+            }
+            .keyword-tags a:hover {
+                background-color: #bbdefb;
+            }
+
+            /* Table Styles */
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 1.5rem;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            }
+            th, td {
+                padding: 1.2rem;
+                text-align: left;
+                font-size: 1rem;
+            }
+            th {
+                background-color: #003366;
+                color: white;
+                font-weight: 700;
+                border-bottom: 1px solid #ddd;
+            }
+            td {
+                background-color: #ffffff;
+                border-bottom: 1px solid #eee;
+            }
+            tr:nth-child(even) td {
+                background-color: #f9f9f9;
+            }
+            .price-highlight {
+                font-weight: 700;
+                color: #e65c52; /* Accent color for prices */
+                font-size: 1.2rem;
+            }
+
+            /* Accordion/FAQ Styles */
+            dl {
+                border-top: 2px solid #ddd;
+                padding-top: 1rem;
+            }
+            dt {
+                cursor: pointer;
+                font-weight: 700;
+                padding: 1rem 0;
+                border-bottom: 1px solid #eee;
+                font-size: 1.1rem;
+                position: relative;
+                transition: color 0.3s ease;
+            }
+            dt::after {
+                content: '+';
+                position: absolute;
+                right: 0;
+                font-size: 1.5rem;
+                transition: transform 0.3s ease;
+            }
+            dt.active {
+                color: #007bff;
+            }
+            dt.active::after {
+                content: '-';
+                transform: rotate(0deg);
+            }
+            dd {
+                padding: 1rem 0;
+                background-color: #fafafa;
+                border-bottom: 1px solid #eee;
+                margin: 0;
+                display: none;
+                overflow: hidden;
+            }
+            dt.active + dd {
+                display: block;
+            }
+
+            /* Form and CTA Styles */
+            .cta-button {
+                display: inline-block;
+                background-color: #e65c52; /* Accent color */
+                color: white;
+                font-weight: 700;
+                padding: 1.2rem 2.5rem;
+                border-radius: 50px;
+                text-decoration: none;
+                margin: 2rem 0;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(230, 92, 82, 0.4);
+            }
+            .cta-button:hover {
+                background-color: #d14a40;
+                transform: translateY(-3px);
+            }
+            .form-box {
+                background-color: #f7f7f7;
+                padding: 2rem;
+                border-radius: 12px;
+                margin-top: 2rem;
+            }
+            .form-box label {
+                display: block;
+                margin-bottom: 0.5rem;
+                font-weight: 700;
+                color: #003366;
+            }
+            .form-box input[type="text"], .form-box input[type="tel"], .form-box select {
+                width: calc(100% - 2rem);
+                padding: 1rem;
+                margin-bottom: 1rem;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                font-size: 1rem;
+            }
+            .form-box .submit-btn {
+                width: 100%;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 1rem;
+                border-radius: 8px;
+                font-size: 1.1rem;
+                font-weight: 700;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .form-box .submit-btn:hover {
+                background-color: #0056b3;
+            }
+
+            /* Footer Styles */
+            footer {
+                text-align: center;
+                padding: 2.5rem;
+                font-size: 0.9rem;
+                color: #888;
+                background-color: #e9ecef;
+                border-top: 1px solid #ddd;
+                margin-top: 3rem;
+            }
+            .footer-links ul {
+                list-style: none;
+                padding: 0;
+                margin-top: 1rem;
+                display: flex;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+            .footer-links a {
+                color: #6c757d;
+                text-decoration: none;
+                font-size: 0.9rem;
+            }
+            .footer-links a:hover {
+                text-decoration: underline;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                h1 { font-size: 2.2rem; }
+                h2 { font-size: 1.8rem; }
+                section { padding: 2rem 1.5rem; }
+                nav ul { flex-direction: column; gap: 1rem; }
+                nav a { padding: 0.8rem; border-radius: 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+                th, td { padding: 1rem 0.8rem; font-size: 0.9rem; }
+            }
+        </style>
+    </head>
+    <body>
+
+        <header>
+            <h1>BMW 520i 리스 가격 및 견적 비교 가이드</h1>
+            <p>2026년 최신 정보 기반, 현명한 금융 상품 선택을 위한 완벽 분석</p>
+            <nav>
+                <ul>
+                    <li><a href="#overview">모델 개요</a></li>
+                    <li><a href="#comparison">리스 vs 할부</a></li>
+                    <li><a href="#pricing">견적 및 비용 분석</a></li>
+                    <li><a href="#faq">자주 묻는 질문</a></li>
+                    <li><a href="#quote">실시간 견적 문의</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Introduction Section -->
+            <section id="overview">
+                <h2>왜 지금 BMW 520i 리스를 고려해야 할까요?</h2>
+                <div class="callout-box">
+                    <strong>BMW 520i 리스, 현명한 선택의 시작</strong>
+                    <p>BMW 520i는 럭셔리 세단의 대명사로 불리는 5시리즈의 핵심 모델입니다. 특히 최신 G60 모델은 역동적인 디자인과 첨단 기술이 결합되어 많은 소비자들의 관심을 받고 있습니다. 차량 구매 방식 중 하나인 'BMW 520i 리스'는 초기 비용 부담을 줄이고 세금 절감 효과를 누릴 수 있어 사업자는 물론 개인 고객에게도 높은 인기를 얻고 있습니다. 이 가이드에서는 2026년도 최신 정보를 반영하여 BMW 520i 리스를 선택할 때 고려해야 할 모든 사항을 심층적으로 다룹니다.</p>
+                </div>
+
+                <h3>2026년 BMW 520i 모델 변화 및 리스 시장 동향</h3>
+                <p>2026년형 BMW 520i는 전동화 모델 i5와 함께 더욱 강력한 하이브리드 기술 및 마일드 하이브리드 시스템이 탑재될 것으로 예상됩니다. 이로 인해 'BMW 520i 리스 비용' 산정 시 연비 효율성과 친환경차 관련 혜택이 중요하게 작용할 수 있습니다. 리스 시장에서는 고금리 시대가 지속되면서 초기 비용이 적은 리스 상품이 'BMW 520i 리스 추천' 상품으로 더욱 부각되고 있으며, 특히 'BMW 520i 리스 할인'을 적용받는 프로모션 상품이 치열한 경쟁을 벌이고 있습니다.</p>
+
+                <div class="keyword-tags" aria-label="BMW 520i 리스 관련 주요 키워드">
+                    <a href="#pricing">BMW 520i 리스 가격</a>
+                    <a href="#comparison">BMW 520i 리스 vs 할부</a>
+                    <a href="#faq">BMW 520i 리스 장점</a>
+                    <a href="#faq">BMW 520i 리스 단점</a>
+                    <a href="#quote">BMW 520i 리스 견적</a>
+                    <a href="#pricing">BMW 520i 리스 비용 평균</a>
+                    <a href="#overview">BMW 520i 2026</a>
+                    <a href="#pricing">BMW 520i 리스 저렴한곳</a>
+                </div>
+            </section>
+
+            <!-- Comparison Section (Lease vs. Installment) -->
+            <section id="comparison">
+                <h2>BMW 520i 리스 vs 할부: 장단점 비교 분석</h2>
+                <p>차량 구매 방법에는 크게 '할부(구입)'와 '리스(대여)'가 있습니다. BMW 520i 리스를 선택하기 전에 두 가지 방식의 차이점을 명확히 이해해야 합니다. 리스는 일정 기간 동안 차량을 빌려 타는 개념이며, 할부는 차량을 소유하는 방식입니다. 각각의 'BMW 520i 리스 장점'과 'BMW 520i 리스 단점'을 정확히 파악하여 개인의 상황에 맞는 최적의 금융 솔루션을 찾아보세요.</p>
+
+                <h3>BMW 520i 리스(Lease)의 주요 특징 및 장점</h3>
+                <p><strong>1. 초기 비용 절감:</strong> 'BMW 520i 리스'는 일반적으로 차량가 전액을 할부로 구매할 때보다 초기 부담이 적습니다. 선납금이나 보증금 비율을 조절할 수 있으며, 특히 보증금 없는 리스(0%) 상품을 선택하면 초기 자본 지출 없이 차량을 운행할 수 있습니다. 이는 'BMW 520i 리스 혜택' 중 가장 큰 매력 중 하나로, 초기 목돈 지출을 꺼리는 개인이나 사업자에게 유리합니다.</p>
+                <p><strong>2. 세금 절감 효과:</strong> 사업자나 법인 명의로 'BMW 520i 리스' 계약을 진행할 경우, 월 납입금 전체를 비용으로 처리하여 세금 공제 혜택을 받을 수 있습니다. 이는 'BMW 520i 리스 장점' 중 하나로, 'BMW 520i 리스 비용'을 줄이는 효과적인 방법입니다. 다만, 연간 비용 처리 한도가 있으므로 전문가와 상담하여 자신의 사업 구조에 맞는지 확인해야 합니다.</p>
+                <p><strong>3. 편리한 차량 관리 및 교체:</strong> 리스 계약 기간 동안 차량 정비 및 관리는 리스 업체에서 제공하는 서비스 패키지에 따라 달라집니다. 또한, 계약 기간 종료 시 차량을 인수할지, 반납할지, 재리스할지 선택할 수 있어 3~4년마다 신차로 교체하기 원하는 분들에게 적합합니다. 'BMW 520i 리스 후기'를 보면, 신기술이 빠르게 변화하는 시대에 맞춰 신차를 경험할 수 있다는 점이 큰 장점으로 꼽힙니다.</p>
+
+                <h3>BMW 520i 리스(Lease)의 주요 단점</h3>
+                <p><strong>1. 주행 거리 제한:</strong> 'BMW 520i 리스' 계약 시 연간 주행 거리가 정해집니다. 이를 초과할 경우 계약 종료 시 추가 비용이 발생합니다. 주행 거리가 많은 고객에게는 큰 'BMW 520i 리스 단점'이 될 수 있습니다. 'BMW 520i 리스 견적'을 받을 때 자신의 주행 습관을 정확히 알려야 합니다.</p>
+                <p><strong>2. 위약금 및 중도 해지 수수료:</strong> 리스 계약 기간을 채우지 못하고 중도 해지할 경우, 잔여 기간 리스료의 상당 부분을 위약금으로 지불해야 합니다. 'BMW 520i 리스 전문 업체'마다 위약금 규정이 다르므로 계약서 작성 전 꼼꼼한 확인이 필수입니다.</p>
+                <p><strong>3. 차량 소유권 부재:</strong> 리스는 명의가 리스 회사에 있어 차량에 대한 소유권을 가지지 못합니다. 이는 'BMW 520i 리스 vs 할부 차이점'의 핵심이며, 소유의 만족감을 중요시하는 고객에게는 단점으로 작용할 수 있습니다.</p>
+
+                <table aria-label="BMW 520i 리스 vs 할부 비교표">
+                    <thead>
+                        <tr>
+                            <th>구분</th>
+                            <th>BMW 520i 리스 (장기 대여)</th>
+                            <th>BMW 520i 할부 (소유)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>차량 소유권</strong></td>
+                            <td>리스 회사 소유 (계약 만료 후 인수 가능)</td>
+                            <td>본인 소유</td>
+                        </tr>
+                        <tr>
+                            <td><strong>초기 비용</strong></td>
+                            <td>낮음 (보증금/선납금 선택 가능, 0% 가능)</td>
+                            <td>높음 (차량가 + 취득세 + 보험료)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>월 납입금 구성</strong></td>
+                            <td>차량 감가상각비 + 이자 + 보험료 + 세금 포함</td>
+                            <td>차량 가격 + 이자</td>
+                        </tr>
+                        <tr>
+                            <td><strong>세금 처리 (사업자)</strong></td>
+                            <td>월 납입금 전액 비용 처리 가능 (한도 내)</td>
+                            <td>감가상각비, 이자, 유류비만 비용 처리 가능</td>
+                        </tr>
+                        <tr>
+                            <td><strong>보험료 부담</strong></td>
+                            <td>리스료에 포함되거나 별도 (리스 회사 보험)</td>
+                            <td>본인 부담 (개별 보험 경력 유지)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>계약 만료 시</strong></td>
+                            <td>반납, 인수, 재리스 선택</td>
+                            <td>차량 소유</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Pricing and Quote Section -->
+            <section id="pricing">
+                <h2>BMW 520i 리스 가격 및 월 납입금 견적 분석</h2>
+                <p>많은 분들이 궁금해하시는 'BMW 520i 리스 가격'은 차량의 옵션, 리스 기간, 잔존가치, 보증금 비율, 그리고 금융사의 금리에 따라 천차만별입니다. 'BMW 520i 리스 비용 평균'을 단순히 비교하기보다, 자신에게 유리한 조건의 'BMW 520i 리스 견적'을 받는 것이 중요합니다.</p>
+
+                <h3>BMW 520i 리스 비용을 결정하는 주요 요소</h3>
+                <ol>
+                    <li><strong>차량가 및 잔존가치:</strong> BMW 520i의 차량 가격이 높을수록 리스료가 비싸집니다. 잔존가치(계약 만료 후 예상 차량 가치)가 높게 책정될수록 월 리스료는 낮아집니다. 'BMW 520i 리스 전문 업체'마다 잔존가치 산정 기준이 다를 수 있습니다.</li>
+                    <li><strong>리스 기간:</strong> 리스 기간이 길어질수록 월 납입금은 낮아지는 경향이 있지만, 총 지출 비용은 늘어날 수 있습니다. 보통 36개월, 48개월, 60개월 계약이 일반적입니다.</li>
+                    <li><strong>보증금 및 선납금:</strong> 보증금(계약 종료 시 돌려받는 금액)이나 선납금(미리 납부하여 월 리스료를 줄이는 금액)을 많이 낼수록 월 리스료는 낮아집니다. 'BMW 520i 리스 저렴한곳'을 찾을 때 보증금 조건도 반드시 확인해야 합니다.</li>
+                    <li><strong>프로모션 및 할인:</strong> 딜러사 및 금융사별로 제공하는 'BMW 520i 리스 할인' 이벤트나 프로모션은 월 납입금에 큰 영향을 미칩니다. 'BMW 520i 리스 신규 가입 혜택'이나 '사은품' 등이 포함된 상품을 꼼꼼히 비교해야 합니다.</li>
+                </ol>
+
+                <h3>2026년 BMW 520i 예상 리스 가격대 (가상 시뮬레이션)</h3>
+                <p>다음은 2026년 BMW 520i 기본 모델(차량가 약 7,000만 원 가정)을 기준으로 한 대략적인 'BMW 520i 리스 가격' 시뮬레이션입니다. 이는 참고용이며 실제 견적은 달라질 수 있습니다.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>계약 조건</th>
+                            <th>36개월 리스 (보증금 30%)</th>
+                            <th>48개월 리스 (보증금 0%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>월 납입금 (예상)</strong></td>
+                            <td><span class="price-highlight">85만원 ~ 100만원</span></td>
+                            <td><span class="price-highlight">80만원 ~ 95만원</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>잔존가치 비율</strong></td>
+                            <td>45% ~ 50%</td>
+                            <td>40% ~ 45%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>총 예상 지출액</strong></td>
+                            <td>(월 납입금 x 36) + (선납금/보증금)</td>
+                            <td>(월 납입금 x 48)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="callout-box"><strong>중요:</strong> 위의 'BMW 520i 리스 가격'은 참고용이며, 정확한 'BMW 520i 리스 견적'은 실시간 금리 및 프로모션을 반영하여 전문 상담사를 통해 확인하는 것이 가장 정확합니다.</p>
+            </section>
+
+            <!-- User Engagement Form (Dwell Time Increase) -->
+            <section id="quote-simulation">
+                <h2>실시간 BMW 520i 리스 견적 시뮬레이터</h2>
+                <p>나에게 맞는 정확한 'BMW 520i 리스 견적'을 확인하고 싶다면 아래 정보를 입력해 주세요. 'BMW 520i 리스 전문 업체'의 실시간 '할인' 및 '프로모션' 정보를 반영하여 맞춤형 견적을 제공해 드립니다. 'BMW 520i 리스 순위' 비교를 통해 가장 저렴한 곳을 찾아보세요.</p>
+                <div class="form-box">
+                    <form action="#" method="post">
+                        <label for="car-model">모델 선택:</label>
+                        <select id="car-model" name="car_model">
+                            <option value="520i_Standard">BMW 520i Standard</option>
+                            <option value="520i_M_Sport">BMW 520i M Sport Package</option>
+                            <option value="530i_Standard">BMW 530i Standard (비교용)</option>
+                            <option value="i5_eDrive40">BMW i5 eDrive40 (전기차 비교용)</option>
+                        </select>
+
+                        <label for="term">리스 기간 (개월):</label>
+                        <select id="term" name="term">
+                            <option value="36">36개월</option>
+                            <option value="48">48개월</option>
+                            <option value="60">60개월</option>
+                        </select>
+
+                        <label for="deposit-type">보증금/선납금 (차종에 따라 선택 가능):</label>
+                        <select id="deposit-type" name="deposit_type">
+                            <option value="0">보증금 0% (초기비용 최소화)</option>
+                            <option value="10">보증금 10%</option>
+                            <option value="20">보증금 20%</option>
+                            <option value="30">보증금 30%</option>
+                        </select>
+
+                        <label for="mileage">연간 주행 거리 (km):</label>
+                        <select id="mileage" name="mileage">
+                            <option value="10000">1만 km</option>
+                            <option value="15000">1만 5천 km</option>
+                            <option value="20000">2만 km</option>
+                            <option value="무제한">무제한 (리스료 상승)</option>
+                        </select>
+
+                        <label for="contact-phone">연락처:</label>
+                        <input type="tel" id="contact-phone" name="contact_phone" placeholder="010-1234-5678" required>
+
+                        <input type="submit" value="맞춤 견적 즉시 받기" class="submit-btn">
+                    </form>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq">
+                <h2>자주 묻는 질문 (FAQ)</h2>
+                <p>BMW 520i 리스 계약과 관련하여 고객들이 가장 많이 궁금해하는 질문들을 모았습니다. 'BMW 520i 리스 가입' 전 반드시 확인해 보세요.</p>
+
+                <dl>
+                    <dt tabindex="0" aria-expanded="false">Q1: BMW 520i 리스 계약 만료 후 선택할 수 있는 옵션은 무엇인가요?</dt>
+                    <dd>A: 리스 계약 만료 시점에는 보통 세 가지 옵션이 제공됩니다. 첫째, <strong>차량 반납</strong>입니다. 잔존가치와 반납 조건에 따라 추가 비용이 발생할 수도, 돌려받을 수도 있습니다. 둘째, <strong>차량 인수</strong>입니다. 잔존가치를 지불하고 본인 명의로 차량을 구매할 수 있습니다. 셋째, <strong>재리스(연장)</strong>입니다. 계약 기간을 연장하여 계속 운행할 수 있습니다. 'BMW 520i 리스 후기'를 보면 대부분 계약 만료 시 신차로 교체하는 경우가 많습니다.</dd>
+
+                    <dt tabindex="0" aria-expanded="false">Q2: BMW 520i 리스 심사는 까다로운가요?</dt>
+                    <dd>A: 'BMW 520i 리스 심사'는 할부 구매와 마찬가지로 금융사의 신용 심사를 거칩니다. 개인의 신용 등급, 소득 수준, 기존 대출 여부 등을 종합적으로 판단합니다. 신용 등급이 낮거나 소득 증빙이 어려운 경우, 보증금을 높게 설정하거나 공동 명의자를 세워 심사를 통과하는 방법이 있습니다. 'BMW 520i 리스 전문 업체'에 문의하시면 고객 상황에 맞는 심사 전략을 제시해 드립니다.</dd>
+
+                    <dt tabindex="0" aria-expanded="false">Q3: 중도 해지 시 위약금은 얼마나 되나요?</dt>
+                    <dd>A: 'BMW 520i 리스 단점' 중 하나인 중도 해지 위약금은 리스 기간이 많이 남아있을수록 높게 책정됩니다. 일반적으로 남은 리스료의 30%~40% 수준이 위약금으로 부과될 수 있으며, 잔존가치 처리 비용이 추가될 수 있습니다. 중도 해지를 고려하고 있다면 'BMW 520i 리스 견적' 문의 시 중도 해지 수수료율을 반드시 확인해야 합니다.</dd>
+
+                    <dt tabindex="0" aria-expanded="false">Q4: 'BMW 520i 리스 혜택'과 '사은품'은 어떤 것들이 있나요?</dt>
+                    <dd>A: 리스 계약 시 딜러사 및 'BMW 520i 리스 전문 업체'에 따라 다양한 '사은품'과 '혜택'을 제공합니다. 대표적으로 고성능 틴팅(썬팅) 시공, 블랙박스 설치, 하이패스, 주유 상품권, 현금 지원금, 보증 연장 서비스 등이 있습니다. 'BMW 520i 리스 순위'를 비교할 때 월 납입금뿐만 아니라 이러한 'BMW 520i 리스 할인' 및 사은품 혜택도 함께 고려하는 것이 좋습니다.</dd>
+
+                    <dt tabindex="0" aria-expanded="false">Q5: AI(ChatGPT/Gemini)가 리스 견적 비교에 도움을 줄 수 있나요?</dt>
+                    <dd>A: AI(ChatGPT/Gemini)는 리스 계약의 기본 개념 설명, 'BMW 520i 리스 장단점' 비교, 계약서 상의 전문 용어 해설, 그리고 수많은 업체의 'BMW 520i 리스 가격' 데이터 분석에 도움을 줄 수 있습니다. 하지만 최종적인 계약 조건은 개인의 신용도와 실시간 프로모션에 따라 달라지므로, 'BMW 520i 리스 전문 업체' 상담을 통해 최종 확인하는 것이 안전합니다.</dd>
+                </dl>
+            </section>
+
+            <!-- Reliability and External Links Section -->
+            <section class="external-links">
+                <h2>신뢰할 수 있는 외부 정보 및 참고 자료</h2>
+                <p>BMW 520i 리스와 관련된 법규, 금융 상품 약관, 차량 정보 등 공신력 있는 외부 자료를 통해 더 현명한 결정을 내리세요.</p>
+                <ul>
+                    <li><a href="https://www.ftc.go.kr/www/cpw/service/selectBusi.do?key=670&busiType=08" target="_blank">공정거래위원회 - 여신전문금융업 표준약관 (리스 관련)</a></li>
+                    <li><a href="https://namu.wiki/w/BMW/5%EC%8B%9C%EB%A6%AC%EC%A6%88" target="_blank">나무위키 - BMW 5시리즈 (G60) 상세 정보</a></li>
+                    <li><a href="https://www.molit.go.kr/CPAS_WEB_NEW/" target="_blank">국토교통부 자동차관리시스템 - 차량 등록 관련 법규 확인</a></li>
+                    <li><a href="https://yourdomain.com/blog/2026-bmw-lease-trend" target="_blank">우리 업체 블로그 - 2026년 BMW 리스 시장 전망 및 분석</a></li>
+                    <li><a href="https://www.fnma.or.kr/" target="_blank">여신금융협회 - 리스 상품 비교 정보 (금리 등)</a></li>
+                </ul>
+            </section>
+
+            <!-- CTA Section -->
+            <section id="contact">
+                <h2>BMW 520i 리스, 지금 바로 전문가와 상담하세요!</h2>
+                <p><strong>'BMW 520i 리스 견적'</strong>은 딜러사별, 금융사별 프로모션에 따라 매일 달라집니다. 'BMW 520i 리스 저렴한곳'을 찾고 있다면 지금 바로 문의하세요. 'BMW 520i 리스 순위' 비교를 통해 가장 합리적인 조건의 'BMW 520i 리스' 상품을 찾아드립니다.</p>
+                <a href="tel:01012345678" class="cta-button" aria-label="BMW 520i 리스 상담 전화">전화로 맞춤 견적 상담받기 📞</a>
+            </section>
+        </main>
+
+
+        <!-- Image Sourcing Note (for Pexels.com) -->
+        <!-- Image search term: "BMW car interior luxury" or "BMW 5 series" (Pexels.com, free for commercial use) -->
+        <!-- Example image to add to the page content: A high-quality image of the BMW 520i exterior or interior. -->
+        <script>
+            // FAQ 아코디언 기능 (접기/펼치기)
+            document.querySelectorAll('dl dt').forEach((dt) => {
+                dt.addEventListener('click', () => {
+                    // Find the next element (dd) for this specific dt
+                    const dd = dt.nextElementSibling;
+                    if (dd && dd.tagName.toLowerCase() === 'dd') {
+                        // Toggle active class on dt
+                        const isActive = dt.classList.contains('active');
+                        // Close all open sections first (optional, for accordion effect)
+                        document.querySelectorAll('dl dt').forEach(item => {
+                            item.classList.remove('active');
+                            item.setAttribute('aria-expanded', 'false');
+                            const relatedDd = item.nextElementSibling;
+                            if (relatedDd && relatedDd.tagName.toLowerCase() === 'dd') {
+                                relatedDd.style.display = 'none';
+                            }
+                        });
+
+                        // Open current section if it was previously closed
+                        if (!isActive) {
+                            dt.classList.add('active');
+                            dt.setAttribute('aria-expanded', 'true');
+                            dd.style.display = 'block';
+                        }
+                    }
+                });
+                dt.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        dt.click();
+                    }
+                });
+            });
+        </script>
+      
